@@ -10,7 +10,7 @@
         <!--Guarda - Roupa-->
         <scene sceneID="Xuh-as-pdr">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="zkj-Ww-vzb" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="zkj-Ww-vzb" customClass="GuardaRoupaAddViewController" customModule="MoodBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gvz-IM-NZJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,9 +56,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Guarda - Roupa" id="w9M-aE-81k">
                         <barButtonItem key="leftBarButtonItem" id="9Mx-97-2Ys"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="c82-GU-1mW"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="c82-GU-1mW">
+                            <connections>
+                                <action selector="SalvarDados:" destination="zkj-Ww-vzb" id="l7a-5o-IRR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="txtNomeRoupa" destination="jRF-uk-wdc" id="p9l-BM-DOX"/>
+                        <outlet property="txtTipoRoupa" destination="laj-eZ-gAA" id="Uy4-uq-2gD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNF-Ep-RGO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
