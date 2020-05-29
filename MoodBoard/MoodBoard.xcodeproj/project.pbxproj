@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F25B8ABB2480291F00E572D1 /* GuardaRoupa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F25B8ABA2480291F00E572D1 /* GuardaRoupa.storyboard */; };
+		F25B8ABD2480458300E572D1 /* GuardaRoupa.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25B8ABC2480458300E572D1 /* GuardaRoupa.swift */; };
+		F25B8ABF248055FB00E572D1 /* ImagemTeste.png in Resources */ = {isa = PBXBuildFile; fileRef = F25B8ABE248055FA00E572D1 /* ImagemTeste.png */; };
 		F280404C247FF069002DAF48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F280404B247FF069002DAF48 /* AppDelegate.swift */; };
 		F280404E247FF069002DAF48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F280404D247FF069002DAF48 /* SceneDelegate.swift */; };
 		F2804050247FF069002DAF48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F280404F247FF069002DAF48 /* ViewController.swift */; };
@@ -14,9 +17,13 @@
 		F2804056247FF069002DAF48 /* MoodBoard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F2804054247FF069002DAF48 /* MoodBoard.xcdatamodeld */; };
 		F2804058247FF06C002DAF48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2804057247FF06C002DAF48 /* Assets.xcassets */; };
 		F280405B247FF06C002DAF48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2804059247FF06C002DAF48 /* LaunchScreen.storyboard */; };
+		F2BFCD8D2481817700A2FA30 /* ProcedimentosBD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BFCD8C2481817700A2FA30 /* ProcedimentosBD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F25B8ABA2480291F00E572D1 /* GuardaRoupa.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GuardaRoupa.storyboard; sourceTree = "<group>"; };
+		F25B8ABC2480458300E572D1 /* GuardaRoupa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardaRoupa.swift; sourceTree = "<group>"; };
+		F25B8ABE248055FA00E572D1 /* ImagemTeste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImagemTeste.png; sourceTree = "<group>"; };
 		F2804048247FF069002DAF48 /* MoodBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F280404B247FF069002DAF48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F280404D247FF069002DAF48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +33,7 @@
 		F2804057247FF06C002DAF48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F280405A247FF06C002DAF48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F280405C247FF06C002DAF48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2BFCD8C2481817700A2FA30 /* ProcedimentosBD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcedimentosBD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,9 +47,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F25B8AB8248028DA00E572D1 /* Source Code */ = {
+			isa = PBXGroup;
+			children = (
+				F25B8ABC2480458300E572D1 /* GuardaRoupa.swift */,
+				F2BFCD8C2481817700A2FA30 /* ProcedimentosBD.swift */,
+			);
+			path = "Source Code";
+			sourceTree = "<group>";
+		};
+		F25B8AB9248028E800E572D1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F25B8ABA2480291F00E572D1 /* GuardaRoupa.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		F280403F247FF069002DAF48 = {
 			isa = PBXGroup;
 			children = (
+				F25B8AB9248028E800E572D1 /* Storyboards */,
+				F25B8AB8248028DA00E572D1 /* Source Code */,
 				F280404A247FF069002DAF48 /* MoodBoard */,
 				F2804049247FF069002DAF48 /* Products */,
 			);
@@ -58,6 +85,7 @@
 		F280404A247FF069002DAF48 /* MoodBoard */ = {
 			isa = PBXGroup;
 			children = (
+				F25B8ABE248055FA00E572D1 /* ImagemTeste.png */,
 				F280404B247FF069002DAF48 /* AppDelegate.swift */,
 				F280404D247FF069002DAF48 /* SceneDelegate.swift */,
 				F280404F247FF069002DAF48 /* ViewController.swift */,
@@ -128,6 +156,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F25B8ABF248055FB00E572D1 /* ImagemTeste.png in Resources */,
+				F25B8ABB2480291F00E572D1 /* GuardaRoupa.storyboard in Resources */,
 				F280405B247FF06C002DAF48 /* LaunchScreen.storyboard in Resources */,
 				F2804058247FF06C002DAF48 /* Assets.xcassets in Resources */,
 				F2804053247FF069002DAF48 /* Main.storyboard in Resources */,
@@ -141,7 +171,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F25B8ABD2480458300E572D1 /* GuardaRoupa.swift in Sources */,
 				F2804050247FF069002DAF48 /* ViewController.swift in Sources */,
+				F2BFCD8D2481817700A2FA30 /* ProcedimentosBD.swift in Sources */,
 				F2804056247FF069002DAF48 /* MoodBoard.xcdatamodeld in Sources */,
 				F280404C247FF069002DAF48 /* AppDelegate.swift in Sources */,
 				F280404E247FF069002DAF48 /* SceneDelegate.swift in Sources */,
