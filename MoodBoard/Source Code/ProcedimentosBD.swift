@@ -25,7 +25,7 @@ class ProcedimentosBD{
   
   
   
-  func SalvarRoupa(nomeRoupa : String, tipoRoupa : String){
+  func SalvarRoupa(nomeRoupa : String, tipoRoupa : String, imagemRoupa : Data){
     
     // Definindo novo objeto a ser inserido
     
@@ -35,6 +35,7 @@ class ProcedimentosBD{
     
     novaRoupa.setValue(nomeRoupa, forKey: "nome")
     novaRoupa.setValue(tipoRoupa, forKey: "tipo")
+    novaRoupa.setValue(imagemRoupa, forKey: "imagem")
     
     // Tenta realizar a conexão e salvamento no banco
     
@@ -46,9 +47,12 @@ class ProcedimentosBD{
     }
   }
   
-  func CarregarRoupas(){
+  func CarregarRoupas() -> Data{
     
     var matrizRoupas = [[String]]()
+    
+    var RetornarImagem : Data
+    RetornarImagem = Data.init()
     
     // Faz uma requisição na tabela Roupas
     let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
@@ -66,6 +70,10 @@ class ProcedimentosBD{
         //matrizRoupas[index][1] = dados.value(forKey: "id") as! String
         let nomeRoupa = dados.value(forKey: "nome") as! String
         let tipoRoupa = dados.value(forKey: "tipo") as! String
+        
+        if dados.value(forKey: "imagem") != nil{
+          RetornarImagem = dados.value(forKey: "imagem") as! Data
+        }
         //matrizRoupas[index][4] = dados.value(forKey: "imagem") as! String
         
         matrizRoupas.append([nomeRoupa,tipoRoupa])
@@ -77,7 +85,8 @@ class ProcedimentosBD{
     }
     for valores in matrizRoupas{
       print(valores)
+      
     }
-    
+    return RetornarImagem
   }
 }
