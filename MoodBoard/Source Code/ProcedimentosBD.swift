@@ -26,7 +26,6 @@ class ProcedimentosBD{
   
   
   func SalvarRoupa(nomeRoupa : String, tipoRoupa : String, imagemRoupa : Data){
-    
     // Definindo novo objeto a ser inserido
     
     let novaRoupa = NSManagedObject(entity: tabelaRoupas!, insertInto: banco)
@@ -57,7 +56,9 @@ class ProcedimentosBD{
     // Faz uma requisição na tabela Roupas
     let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
     
-    requisição.returnsObjectsAsFaults = false
+    //requisição.returnsObjectsAsFaults = false
+    
+    //requisição.predicate = NSPredicate(format: "nome == %@", "Oie")
     
     
     do{
@@ -88,5 +89,35 @@ class ProcedimentosBD{
       
     }
     return RetornarImagem
+  }
+  
+  func apagarTodosRegistros(){
+    
+    let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
+    let deletar = NSBatchDeleteRequest(fetchRequest: requisição)
+    
+    do {
+      try banco.execute(deletar)
+    } catch {
+      print("Erro ao apagar todos os registros")
+    }
+    
+  }
+  
+  func apagarApenasUmRegistro(){
+    
+    let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
+    
+    requisição.predicate = NSPredicate(format: "tipo == %@", "DDD")
+    
+    let deletar = NSBatchDeleteRequest(fetchRequest: requisição)
+    
+    do {
+      try banco.execute(deletar)
+      print("Apagado")
+    } catch {
+      print("Erro ao apagar todos os registros")
+    }
+    
   }
 }
