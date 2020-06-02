@@ -57,12 +57,11 @@ class GuardaRoupaAddViewController: UIViewController, UIImagePickerControllerDel
   
   @IBAction func SalvarDados(_ sender: Any) {
     
-    procBD.apagarTodosRegistros()
-    procBD.apagarApenasUmRegistro()
-    procBD.SalvarRoupa(nomeRoupa: txtNomeRoupa.text ?? "NULL", tipoRoupa: txtTipoRoupa.text ?? "NULL",imagemRoupa: (imagemRoupa.image?.pngData())!)
-    //imagemTeste.image = UIImage(data: procBD.CarregarRoupas())
-    
-    
-    
+    if txtNomeRoupa.text != "" && imagemRoupa.image != nil{
+      //procBD.apagarTodosRegistros()
+      //procBD.apagarApenasUmRegistro()
+      procBD.SalvarRoupa(nomeRoupa: txtNomeRoupa.text ?? "NULL", tipoRoupa: txtTipoRoupa.text ?? "NULL",imagemRoupa: (imagemRoupa.image?.pngData())!)
+      //imagemTeste.image = UIImage(data: procBD.CarregarRoupas())
+    }
   }
 }
