@@ -11,15 +11,33 @@ import CoreData
 
 class RoupasViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
   
-   var bd = ProcedimentosBD()
+    var bd = ProcedimentosBD()
+    var DataSource: [[Roupa]] = [[]]
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //Chamada da função que instancia cada uma das dicas e retorna elas num array
+        DataSource = bd.CarregarTodasRoupas()
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-          <#code#>
+        print(DataSource.count)
+        return DataSource.count
       }
       
       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-          <#code#>
-      }
+        
+        var cell = UICollectionViewCell()
+               
+               if let RoupasCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoupaCell", for: indexPath) as? RoupasCollectionViewCell {
+                   
+                   RoupasCell.configure(with: DataSource[indexPath.row][3])
+           
+                   cell = RoupasCell
+               }
+               return cell
+    
+    }
       
 
 

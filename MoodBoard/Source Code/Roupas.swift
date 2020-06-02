@@ -10,9 +10,19 @@ import Foundation
 import CoreData
 import UIKit
 
-@objc(Roupas)
-public class Roupas: NSManagedObject {
+public class Roupa {
     
+    public var idRoupa: Int?
+    public var nomeRoupa: String?
+    public var tipoRoupa: String?
+    public var imagemRoupa: UIImage?
+    
+    init(idRoupa: Int, nomeRoupa: String, tipoRoupa: String, imagemRoupa: UIImage) {
+        self.idRoupa = idRoupa
+        self.nomeRoupa = nomeRoupa
+        self.tipoRoupa = tipoRoupa
+        self.imagemRoupa = imagemRoupa
+    }
 }
 
 

@@ -11,4 +11,9 @@ import UIKit
 class RoupasCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var roupaIMG: UIImageView!
+
+    func configure(with roupa: Roupa){
+        
+        roupaIMG.image = roupa.imagemRoupa
+    }
 }
