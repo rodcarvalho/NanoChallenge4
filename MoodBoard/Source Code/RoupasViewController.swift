@@ -10,13 +10,17 @@ import UIKit
 import CoreData
 
 class RoupasViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-  
+    
     var bd = ProcedimentosBD()
     var DataSource: [Roupa] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         //Chamada da função que instancia cada uma das dicas e retorna elas num array
         //bd.apagarTodosRegistros()
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
         DataSource = bd.CarregarTodasRoupas()
     }
     
@@ -37,19 +41,16 @@ class RoupasViewController: UIViewController,UICollectionViewDelegate,UICollecti
                    cell = RoupasCell
                }
                return cell
-    
     }
-      
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+extension RoupasViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        print("Entrou")
+      
+        DataSource = bd.CarregarRoupas(input: searchController.searchBar.text ?? "")
+        
+        
+    }
+}
+
