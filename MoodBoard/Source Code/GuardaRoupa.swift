@@ -19,23 +19,26 @@ class GuardaRoupaAddViewController: UIViewController, UIImagePickerControllerDel
   @IBOutlet weak var txtNomeRoupa: UITextField!
   @IBOutlet weak var txtTipoRoupa: UITextField!
   @IBOutlet weak var imagemRoupa: UIImageView!
-  @IBOutlet weak var imagemTeste: UIImageView!
   
   
   // Variáveis lógicas
+  
+  var novaImagem = false
   
   // Instanciando banco
   var procBD = ProcedimentosBD()
   
   
-  
-  
-  
   override func viewDidLoad() {
     
     //PARTE COPIADA
-    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(cameraButtonPressed))
+    
+    
     //FIM PARTE COPIADA
+    
+    let apertarImagem = UITapGestureRecognizer(target: self, action: #selector(cameraButtonPressed))
+    
+    imagemRoupa.addGestureRecognizer(apertarImagem)
     
     super.viewDidLoad()
   }
@@ -52,16 +55,30 @@ class GuardaRoupaAddViewController: UIViewController, UIImagePickerControllerDel
     guard let userPickedImage = info[.editedImage] as? UIImage else { return }
     imagemRoupa.image = userPickedImage
     picker.dismiss(animated: true)
+    novaImagem = true
   }
   //FIM PARTE COPIADA
   
   @IBAction func SalvarDados(_ sender: Any) {
     
-    if txtNomeRoupa.text != "" && imagemRoupa.image != nil{
+    
+    if txtNomeRoupa.text != "" && novaImagem == true{
       //procBD.apagarTodosRegistros()
       //procBD.apagarApenasUmRegistro()
-      procBD.SalvarRoupa(nomeRoupa: txtNomeRoupa.text ?? "NULL", tipoRoupa: txtTipoRoupa.text ?? "NULL",imagemRoupa: (imagemRoupa.image?.pngData())!)
+      procBD.SalvarRoupa(
+        nomeRoupa: txtNomeRoupa.text ?? "NULL",
+        tipoRoupa: txtTipoRoupa.text ?? "NULL",
+        imagemRoupa: (imagemRoupa.image?.pngData())!
+      )
       //imagemTeste.image = UIImage(data: procBD.CarregarRoupas())
+      
+      //Lembrar de adicionar uma notificação pra mostrar que foi salvo com sucesso
+      
+      ///Reinicia valores da tela
+      txtNomeRoupa.text = ""
+      txtTipoRoupa.text = ""
+      imagemRoupa.image = UIImage.init(systemName: "square.and.arrow.up")
+      novaImagem = false
     }
   }
 }
