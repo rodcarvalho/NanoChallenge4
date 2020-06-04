@@ -67,11 +67,12 @@ class ProcedimentosBD{
                 let imagemRoupa = dados.value(forKey: "imagem") as! Data
                 
                 print(nomeRoupa)
+                /*
                 matrizRoupas.append(Roupa(idRoupa: idRoupa,
                                           nomeRoupa: nomeRoupa,
                                           tipoRoupa: tipoRoupa,
                                           imagemRoupa: UIImage(data: imagemRoupa)!))
-                
+                */
             }
             
         } catch {
@@ -128,11 +129,12 @@ class ProcedimentosBD{
                 let imagemRoupa = dados.value(forKey: "imagem") as! Data
                 
                 print(nomeRoupa)
+                /*
                 matrizRoupas.append(Roupa(idRoupa: idRoupa,
                                           nomeRoupa: nomeRoupa,
                                           tipoRoupa: tipoRoupa,
                                           imagemRoupa: UIImage(data: imagemRoupa)!))
-                
+                */
             }
             
         } catch {

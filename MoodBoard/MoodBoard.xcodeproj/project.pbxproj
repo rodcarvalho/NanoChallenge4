@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38D585F2248575A800BFAC20 /* RoupasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D585F1248575A800BFAC20 /* RoupasViewController.swift */; };
-		38DFF56E2486C895003DDF45 /* RoupasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DFF56D2486C895003DDF45 /* RoupasCollectionViewCell.swift */; };
-		38DFF5722486CC48003DDF45 /* Roupas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DFF5712486CC48003DDF45 /* Roupas.swift */; };
+		382151032489733E001C5687 /* RoupasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382151022489733E001C5687 /* RoupasViewController.swift */; };
+		38215106248973DC001C5687 /* RoupasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38215104248973DC001C5687 /* RoupasCollectionViewCell.swift */; };
+		38215107248973DC001C5687 /* RoupasCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38215105248973DC001C5687 /* RoupasCollectionViewCell.xib */; };
+		3821510924898094001C5687 /* ImgRoupaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821510824898094001C5687 /* ImgRoupaViewController.swift */; };
 		38F8718A2481AE8700DD291D /* Roupas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F871892481AE8700DD291D /* Roupas.storyboard */; };
 		F25B8ABB2480291F00E572D1 /* GuardaRoupa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F25B8ABA2480291F00E572D1 /* GuardaRoupa.storyboard */; };
 		F25B8ABD2480458300E572D1 /* GuardaRoupa.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25B8ABC2480458300E572D1 /* GuardaRoupa.swift */; };
@@ -24,9 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		38D585F1248575A800BFAC20 /* RoupasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoupasViewController.swift; sourceTree = "<group>"; };
-		38DFF56D2486C895003DDF45 /* RoupasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoupasCollectionViewCell.swift; sourceTree = "<group>"; };
-		38DFF5712486CC48003DDF45 /* Roupas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roupas.swift; sourceTree = "<group>"; };
+		382151022489733E001C5687 /* RoupasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoupasViewController.swift; sourceTree = "<group>"; };
+		38215104248973DC001C5687 /* RoupasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoupasCollectionViewCell.swift; sourceTree = "<group>"; };
+		38215105248973DC001C5687 /* RoupasCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoupasCollectionViewCell.xib; sourceTree = "<group>"; };
+		3821510824898094001C5687 /* ImgRoupaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgRoupaViewController.swift; sourceTree = "<group>"; };
 		38F871892481AE8700DD291D /* Roupas.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Roupas.storyboard; sourceTree = "<group>"; };
 		F25B8ABA2480291F00E572D1 /* GuardaRoupa.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GuardaRoupa.storyboard; sourceTree = "<group>"; };
 		F25B8ABC2480458300E572D1 /* GuardaRoupa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardaRoupa.swift; sourceTree = "<group>"; };
@@ -58,9 +60,10 @@
 			children = (
 				F25B8ABC2480458300E572D1 /* GuardaRoupa.swift */,
 				F2BFCD8C2481817700A2FA30 /* ProcedimentosBD.swift */,
-				38D585F1248575A800BFAC20 /* RoupasViewController.swift */,
-				38DFF56D2486C895003DDF45 /* RoupasCollectionViewCell.swift */,
-				38DFF5712486CC48003DDF45 /* Roupas.swift */,
+				382151022489733E001C5687 /* RoupasViewController.swift */,
+				38215104248973DC001C5687 /* RoupasCollectionViewCell.swift */,
+				38215105248973DC001C5687 /* RoupasCollectionViewCell.xib */,
+				3821510824898094001C5687 /* ImgRoupaViewController.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -95,11 +98,11 @@
 		F280404A247FF069002DAF48 /* MoodBoard */ = {
 			isa = PBXGroup;
 			children = (
-				F25B8ABE248055FA00E572D1 /* ImagemTeste.png */,
 				F280404B247FF069002DAF48 /* AppDelegate.swift */,
 				F280404D247FF069002DAF48 /* SceneDelegate.swift */,
 				F2804051247FF069002DAF48 /* Main.storyboard */,
 				F2804057247FF06C002DAF48 /* Assets.xcassets */,
+				F25B8ABE248055FA00E572D1 /* ImagemTeste.png */,
 				F2804059247FF06C002DAF48 /* LaunchScreen.storyboard */,
 				F280405C247FF06C002DAF48 /* Info.plist */,
 				F2804054247FF069002DAF48 /* MoodBoard.xcdatamodeld */,
@@ -169,6 +172,7 @@
 				F25B8ABB2480291F00E572D1 /* GuardaRoupa.storyboard in Resources */,
 				F280405B247FF06C002DAF48 /* LaunchScreen.storyboard in Resources */,
 				F2804058247FF06C002DAF48 /* Assets.xcassets in Resources */,
+				38215107248973DC001C5687 /* RoupasCollectionViewCell.xib in Resources */,
 				38F8718A2481AE8700DD291D /* Roupas.storyboard in Resources */,
 				F2804053247FF069002DAF48 /* Main.storyboard in Resources */,
 			);
@@ -181,9 +185,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38DFF56E2486C895003DDF45 /* RoupasCollectionViewCell.swift in Sources */,
-				38DFF5722486CC48003DDF45 /* Roupas.swift in Sources */,
-				38D585F2248575A800BFAC20 /* RoupasViewController.swift in Sources */,
+				38215106248973DC001C5687 /* RoupasCollectionViewCell.swift in Sources */,
+				382151032489733E001C5687 /* RoupasViewController.swift in Sources */,
+				3821510924898094001C5687 /* ImgRoupaViewController.swift in Sources */,
 				F25B8ABD2480458300E572D1 /* GuardaRoupa.swift in Sources */,
 				F2BFCD8D2481817700A2FA30 /* ProcedimentosBD.swift in Sources */,
 				F2804056247FF069002DAF48 /* MoodBoard.xcdatamodeld in Sources */,
