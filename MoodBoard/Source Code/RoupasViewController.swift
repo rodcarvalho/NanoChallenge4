@@ -15,11 +15,12 @@ struct Roupa {
 
 class RoupasViewController: UIViewController {
     
+    //Enumeração com os modos para visualização e seleção das imagens
     enum Mode{
         case view
         case select
-        
     }
+    
     @IBOutlet weak var collectionView: UICollectionView! //linka a Collection View do Storyboard
     
     var roupas: [Roupa] = [Roupa(imageName: "image1"),
@@ -35,6 +36,7 @@ class RoupasViewController: UIViewController {
     let cellIdentifier = "RoupasCollectionViewCell" //guarda a string de identifier da célula
     let viewImageSegueIdentifier = "viewImageSegueIdentifier" //guarda a string de identifier do Segue
     
+    //Variável que guarda o modo atual
     var mMode: Mode = .view{
         didSet{
             switch mMode {
@@ -72,6 +74,11 @@ class RoupasViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
         
         setupBarButtonItens()
         setupCollectionView()
@@ -175,5 +182,27 @@ extension RoupasViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if mMode == .select{
             dictionarySelectedIndexPath[indexPath] = false
         }
+    }
+}
+
+extension RoupasViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let predicate: NSPredicate
+        if let userInput = searchController.searchBar.text, !userInput.isEmpty {
+
+            // Searching title with "diacritic insensitive" option gets the same result:
+            //     predicate = NSPredicate(format: "title CONTAINS[cd] %@", userInput)
+            // However, searching canonicalTitle avoids doing diacritic insensitive comparison every time,
+            // and hence has better performance.
+            //
+            predicate = NSPredicate(format: "nome CONTAINS[c] %@", userInput)
+        } else {
+            predicate = NSPredicate(value: true)
+        }
+
+        //O fetch vem aqui
+        
+        collectionView.reloadData()
     }
 }
