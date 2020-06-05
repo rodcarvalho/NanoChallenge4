@@ -2,53 +2,61 @@
 //  MoodBoard.swift
 //  MoodBoard
 //
-//  Created by Jader Gedeon on 04/06/20.
+//  Created by Jader Gedeon on 05/06/20.
 //  Copyright © 2020 Jader e Rodrigo. All rights reserved.
 //
 
-import Foundation
-import CoreData
 import UIKit
 
+protocol MoodBoardDelegate: class {
+    func collectionView(_ collectionView: UICollectionView, tamanhoImagem indexPath: IndexPath) -> CGSize
+}
 
-class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource/*, UIImagePickerControllerDelegate & UINavigationControllerDelegate*/ {
+class MoodBoard: UICollectionViewLayout {
     
+    weak var delegate: MoodBoardDelegate!
     
-    // Variáveis de objetos
-    @IBOutlet weak var pickerCategoriaRoupa: UIPickerView!
+    var numeroDeColunas = 2
+    var espacamentoEntreImagens = 3
     
-    // Variáveis lógicas
+    fileprivate var cache = [UICollectionViewLayoutAttributes]()
     
-    let categoriasRoupa = ["Social","Inverno","Casual","Verão","Festa"]
+    fileprivate var alturaDoConteudo: CGFloat = 0
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    fileprivate var larguraDoConteudo: CGFloat {
+        guard let collectionView = collectionView else{
+            return 0
+        }
         
-        
-        let anguloDeRotação = CGFloat(90 * (Double.pi/180))
-        
-        // Adicionando picker
-        pickerCategoriaRoupa.transform = CGAffineTransform(rotationAngle: anguloDeRotação)
-        
-        pickerCategoriaRoupa.delegate = self
-        pickerCategoriaRoupa.dataSource = self
-        pickerCategoriaRoupa.selectRow(categoriasRoupa.count/2, inComponent: 0, animated: true)
+        return collectionView.bounds.width
     }
     
-    // Configuração do PickerView das categorias de roupas
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+    override var collectionViewContentSize: CGSize {
+        return CGSize(width: larguraDoConteudo, height: alturaDoConteudo)
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categoriasRoupa.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoriasRoupa[row]
+    override func prepare() {
+        guard cache.isEmpty, let collectionView = collectionView else {
+            return
+        }
+        
+        let larguraDaColuna = larguraDoConteudo / CGFloat(numeroDeColunas)
+        var xOffset = [CGFloat]()
+        for coluna in 0..<numeroDeColunas {
+            xOffset.append(CGFloat(coluna)*larguraDaColuna)
+        }
+        
+        var coluna = 0
+        var yOffset = [CGFloat](repeating: 0, count: numeroDeColunas)
+        
+        for item in 0..<collectionView.numberOfItems(inSection: 0) {
+            
+            let indexPath = IndexPath(item: item, section: 0)
+            
+            //PHOTOSIZE
+            
+        }
+        
     }
     
 }
-
-
