@@ -64,15 +64,14 @@ class ProcedimentosBD{
                 let idRoupa = dados.value(forKey: "id") as! Int
                 let nomeRoupa = dados.value(forKey: "nome") as! String
                 let tipoRoupa = dados.value(forKey: "tipo") as! String
-                let imagemRoupa = dados.value(forKey: "imagem") as! Data
+                let imagemRoupaBD = dados.value(forKey: "imagem") as! Data
                 
-                print(nomeRoupa)
-                /*
+                
                 matrizRoupas.append(Roupa(idRoupa: idRoupa,
                                           nomeRoupa: nomeRoupa,
                                           tipoRoupa: tipoRoupa,
-                                          imagemRoupa: UIImage(data: imagemRoupa)!))
-                */
+                                          imagemRoupa: UIImage(data: imagemRoupaBD)!))
+                
             }
             
         } catch {

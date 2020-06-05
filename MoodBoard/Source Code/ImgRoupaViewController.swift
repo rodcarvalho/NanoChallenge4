@@ -11,7 +11,7 @@ import UIKit
 class ImgRoupaViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    var imageName: String!
+    var dadosRoupa: Roupa!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +20,11 @@ class ImgRoupaViewController: UIViewController {
     }
     
     private func setupImage(){
-        guard let name = imageName else {return}
+        guard let name = dadosRoupa else {return}
         
-        if let image = UIImage(named: name){
-            imageView.image = image
-        }
+        //if let image = name.imagemRoupa{
+            imageView.image = name.imagemRoupa //image
+        //}
     }
     
 }

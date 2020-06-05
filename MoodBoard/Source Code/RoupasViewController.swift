@@ -10,7 +10,10 @@ import UIKit
 
 //Estrutura da Roupa para teste
 struct Roupa {
-    var imageName: String
+    var idRoupa : Int
+    var nomeRoupa : String
+    var tipoRoupa : String
+    var imagemRoupa: UIImage
 }
 
 class RoupasViewController: UIViewController {
@@ -23,14 +26,9 @@ class RoupasViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView! //linka a Collection View do Storyboard
     
-    var roupas: [Roupa] = [Roupa(imageName: "image1"),
-                           Roupa(imageName: "image2"),
-                           Roupa(imageName: "image2"),
-                           Roupa(imageName: "image3"),
-                           Roupa(imageName: "image4"),
-                           Roupa(imageName: "image3"),
-                           Roupa(imageName: "image4"),
-                           Roupa(imageName: "image5")]
+    var procBD = ProcedimentosBD()
+    
+    var DataSource: [Roupa] = []
     
     var collectionViewFlowLayout: UICollectionViewFlowLayout! //define a variável de FlowLayout da collection
     let cellIdentifier = "RoupasCollectionViewCell" //guarda a string de identifier da célula
@@ -73,6 +71,7 @@ class RoupasViewController: UIViewController {
     var dictionarySelectedIndexPath : [IndexPath:Bool] = [:]
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         let searchController = UISearchController(searchResultsController: nil)
@@ -84,12 +83,18 @@ class RoupasViewController: UIViewController {
         setupCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DataSource = procBD.CarregarRoupas(input: "")
+        collectionView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let roupa = sender as! Roupa
+        let roupaEnviada = sender as! Roupa
         
         if segue.identifier == viewImageSegueIdentifier{
             if let vc = segue.destination as? ImgRoupaViewController{
-                vc.imageName = roupa.imageName
+                vc.dadosRoupa = roupaEnviada
                 
             }
         }
@@ -137,6 +142,8 @@ class RoupasViewController: UIViewController {
         mMode = mMode == .view ? .select : .view
     }
     
+    // Parte que deleta
+    
     @objc func didsDeleteButtonClicked(_sender: UIBarButtonItem ){
         var deleteNeededIndexPaths: [IndexPath] = []
         for (key, value) in dictionarySelectedIndexPath{
@@ -146,7 +153,8 @@ class RoupasViewController: UIViewController {
         }
         
         for i in deleteNeededIndexPaths.sorted(by: {$0.item > $1.item}){
-            roupas.remove(at: i.item)
+            //procBD.apagarApenasUmRegistro(DataSource[i[1]].idRoupa)
+            DataSource.remove(at: i.item)
         }
         
         collectionView.deleteItems(at: deleteNeededIndexPaths)
@@ -157,13 +165,13 @@ class RoupasViewController: UIViewController {
 extension RoupasViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return roupas.count
+        return DataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! RoupasCollectionViewCell
         
-        cell.imageView.image = UIImage(named: roupas[indexPath.item].imageName)
+        cell.imageView.image = DataSource[indexPath.item].imagemRoupa
         
         return cell
     }
@@ -171,7 +179,7 @@ extension RoupasViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch mMode {
         case .view:
-            let roupa = roupas[indexPath.item]
+            let roupa = DataSource[indexPath.item]
             performSegue(withIdentifier: viewImageSegueIdentifier, sender: roupa)
             collectionView.deselectItem(at: indexPath, animated: true)
         case .select:
