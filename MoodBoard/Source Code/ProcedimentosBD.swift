@@ -46,49 +46,40 @@ class ProcedimentosBD{
         }
     }
     
-    func CarregarRoupas() -> Data{
+    func CarregarRoupas(input: String) -> [Roupa]{
         
-        var matrizRoupas = [[String]]()
+        var matrizRoupas = [Roupa]()
         
-        var RetornarImagem : Data
-        RetornarImagem = Data.init()
-        
-        // Faz uma requisição na tabela Roupas
         let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
         
-        //requisição.returnsObjectsAsFaults = false
-        
-        //requisição.predicate = NSPredicate(format: "nome == %@", "Oie")
-        
+        if input != "" {
+            requisição.predicate = NSPredicate(format: "tipo CONTAINS[c] %@", input)
+        }
         
         do{
-            // Faz uma consulta no banco de dados selecionando todos os dados que tiverem sido requisitados
             let consulta = try banco.fetch(requisição)
             
-            // Para cada objeto na consulta
             for dados in consulta as! [NSManagedObject]{
                 
-                //matrizRoupas[index][1] = dados.value(forKey: "id") as! String
+                let idRoupa = dados.value(forKey: "id") as! Int
                 let nomeRoupa = dados.value(forKey: "nome") as! String
                 let tipoRoupa = dados.value(forKey: "tipo") as! String
+                let imagemRoupa = dados.value(forKey: "imagem") as! Data
                 
-                if dados.value(forKey: "imagem") != nil{
-                    RetornarImagem = dados.value(forKey: "imagem") as! Data
-                }
-                //matrizRoupas[index][4] = dados.value(forKey: "imagem") as! String
-                
-                matrizRoupas.append([nomeRoupa,tipoRoupa])
-                
-                
+                print(nomeRoupa)
+                /*
+                matrizRoupas.append(Roupa(idRoupa: idRoupa,
+                                          nomeRoupa: nomeRoupa,
+                                          tipoRoupa: tipoRoupa,
+                                          imagemRoupa: UIImage(data: imagemRoupa)!))
+                */
             }
+            
         } catch {
             print("Erro ao carregar")
         }
-        for valores in matrizRoupas{
-            print(valores)
-            
-        }
-        return RetornarImagem
+        print("Chamou tudo")
+        return matrizRoupas
     }
     
     func apagarTodosRegistros(){
@@ -138,11 +129,12 @@ class ProcedimentosBD{
                 let imagemRoupa = dados.value(forKey: "imagem") as! Data
                 
                 print(nomeRoupa)
+                /*
                 matrizRoupas.append(Roupa(idRoupa: idRoupa,
-                                                 nomeRoupa: nomeRoupa,
-                                                 tipoRoupa: tipoRoupa,
-                                                 imagemRoupa: UIImage(data: imagemRoupa)!))
-                
+                                          nomeRoupa: nomeRoupa,
+                                          tipoRoupa: tipoRoupa,
+                                          imagemRoupa: UIImage(data: imagemRoupa)!))
+                */
             }
             
         } catch {

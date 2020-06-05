@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Roupas View Controller-->
+        <!--Guarda Roupas-->
         <scene sceneID="v9F-Mi-PPt">
             <objects>
                 <viewController id="wrP-Ay-zKK" customClass="RoupasViewController" customModule="MoodBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,45 +16,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Oxv-zG-YOK">
-                                <rect key="frame" x="20" y="104" width="374" height="709"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="heV-zK-TQP">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m6M-Ih-Jcb">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sYp-Tt-VTK">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RoupaCell" id="XIq-zd-Yhs" userLabel="RoupaCell" customClass="RoupasCollectionViewCell" customModule="MoodBoard" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="daj-ZJ-Uoe">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jzz-X7-49S">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YlU-2O-N0K">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSw-wU-Knq">
-                                                    <rect key="frame" x="0.0" y="8" width="128" height="120"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
                                         </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="roupaIMG" destination="zSw-wU-Knq" id="tks-GQ-haV"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="wrP-Ay-zKK" id="sZG-vW-TuA"/>
-                                    <outlet property="delegate" destination="wrP-Ay-zKK" id="uBL-jD-xZi"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="heV-zK-TQP" firstAttribute="trailing" secondItem="MZR-tb-ZKs" secondAttribute="trailing" id="9z0-v3-kyV"/>
+                            <constraint firstItem="heV-zK-TQP" firstAttribute="bottom" secondItem="MZR-tb-ZKs" secondAttribute="bottom" id="Bfu-R4-Asc"/>
+                            <constraint firstItem="heV-zK-TQP" firstAttribute="top" secondItem="MZR-tb-ZKs" secondAttribute="top" id="hdw-qV-qai"/>
+                            <constraint firstItem="heV-zK-TQP" firstAttribute="leading" secondItem="MZR-tb-ZKs" secondAttribute="leading" id="rzZ-Zf-5cJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MZR-tb-ZKs"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nWM-Pv-U2T"/>
+                    <navigationItem key="navigationItem" title="Guarda Roupas" id="nWM-Pv-U2T"/>
+                    <connections>
+                        <outlet property="collectionView" destination="heV-zK-TQP" id="shf-vg-CeV"/>
+                        <segue destination="d1L-pr-2h6" kind="show" identifier="viewImageSegueIdentifier" id="4yp-vf-yJ6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGg-eO-rWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,6 +75,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJv-wL-JHk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+        <!--Img Roupa View Controller-->
+        <scene sceneID="0iy-kI-IUu">
+            <objects>
+                <viewController id="d1L-pr-2h6" customClass="ImgRoupaViewController" customModule="MoodBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k8L-j6-pCH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="APc-JH-PWp">
+                                <rect key="frame" x="20" y="88" width="374" height="451"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="APc-JH-PWp" firstAttribute="leading" secondItem="Aza-eT-rdX" secondAttribute="leading" constant="20" id="2oZ-fj-ggJ"/>
+                            <constraint firstItem="Aza-eT-rdX" firstAttribute="bottom" secondItem="APc-JH-PWp" secondAttribute="bottom" constant="274" id="A98-GG-3Up"/>
+                            <constraint firstItem="Aza-eT-rdX" firstAttribute="trailing" secondItem="APc-JH-PWp" secondAttribute="trailing" constant="20" id="DUy-0f-h17"/>
+                            <constraint firstItem="APc-JH-PWp" firstAttribute="top" secondItem="Aza-eT-rdX" secondAttribute="top" id="K55-Id-7Rz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Aza-eT-rdX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yj9-M1-Lf6"/>
+                    <connections>
+                        <outlet property="imageView" destination="APc-JH-PWp" id="XZl-QO-9nz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PMS-v9-wDy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1969.5652173913045" y="129.91071428571428"/>
         </scene>
     </scenes>
     <resources>
