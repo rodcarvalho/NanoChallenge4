@@ -24,27 +24,26 @@ class ProcedimentosBD{
     }
     
     
-    
-    func SalvarRoupa(nomeRoupa : String, tipoRoupa : String, imagemRoupa : Data){
+    func SalvarRoupa(idRoupa: Int,nomeRoupa : String, tipoRoupa : String, imagemRoupa : Data){
         // Definindo novo objeto a ser inserido
         
         let novaRoupa = NSManagedObject(entity: tabelaRoupas!, insertInto: banco)
         
         // Atribuindo seus valores
-        
+        novaRoupa.setValue(idRoupa, forKey: "id")
         novaRoupa.setValue(nomeRoupa, forKey: "nome")
         novaRoupa.setValue(tipoRoupa, forKey: "tipo")
         novaRoupa.setValue(imagemRoupa, forKey: "imagem")
         
-        // Tenta realizar a conexão e salvamento no banco
         
         do{
             try banco.save()
-            print("Salvo")
         } catch {
             print("Errou")
         }
     }
+    
+    // Carregar Roupa
     
     func CarregarRoupas(input: String) -> [Roupa]{
         
@@ -53,7 +52,7 @@ class ProcedimentosBD{
         let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
         
         if input != "" {
-            requisição.predicate = NSPredicate(format: "tipo CONTAINS[c] %@", input)
+            requisição.predicate = NSPredicate(format: "nome CONTAINS[c] %@", input)
         }
         
         do{
@@ -70,16 +69,19 @@ class ProcedimentosBD{
                 matrizRoupas.append(Roupa(idRoupa: idRoupa,
                                           nomeRoupa: nomeRoupa,
                                           tipoRoupa: tipoRoupa,
-                                          imagemRoupa: UIImage(data: imagemRoupaBD)!))
+                                          imagemRoupa: UIImage(data: imagemRoupaBD)!
+                                         )
+                                    )
                 
             }
             
         } catch {
             print("Erro ao carregar")
         }
-        print("Chamou tudo")
         return matrizRoupas
     }
+    
+    // Apaga Todos os registros do BD
     
     func apagarTodosRegistros(){
         
@@ -94,52 +96,44 @@ class ProcedimentosBD{
         
     }
     
-    func apagarApenasUmRegistro(){
+    // Apaga um registro pelo seu ID
+    
+    func apagarApenasUmRegistro(idRoupa: Int){
         
         let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
         
-        requisição.predicate = NSPredicate(format: "tipo == %@", "DDD")
+        requisição.predicate = NSPredicate(format: "id == \(idRoupa)")
         
         let deletar = NSBatchDeleteRequest(fetchRequest: requisição)
         
         do {
             try banco.execute(deletar)
-            print("Apagado")
         } catch {
             print("Erro ao apagar todos os registros")
         }
         
     }
     
-    func CarregarTodasRoupas() -> [Roupa]{
+    // Pega o último ID do guarda-roupa
+    
+    func pegarIDRoupa() -> Int {
+    
+    let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
         
-        var matrizRoupas = [Roupa]()
+    var ultimoID = 0
+
+    do{
+        let consulta = try banco.fetch(requisição)
         
-        let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
-        
-        do{
-            let consulta = try banco.fetch(requisição)
+        for dados in consulta as! [NSManagedObject]{
             
-            for dados in consulta as! [NSManagedObject]{
-                
-                let idRoupa = dados.value(forKey: "id") as! Int
-                let nomeRoupa = dados.value(forKey: "nome") as! String
-                let tipoRoupa = dados.value(forKey: "tipo") as! String
-                let imagemRoupa = dados.value(forKey: "imagem") as! Data
-                
-                print(nomeRoupa)
-                /*
-                matrizRoupas.append(Roupa(idRoupa: idRoupa,
-                                          nomeRoupa: nomeRoupa,
-                                          tipoRoupa: tipoRoupa,
-                                          imagemRoupa: UIImage(data: imagemRoupa)!))
-                */
-            }
-            
-        } catch {
-            print("Erro ao carregar")
+            let idRoupa = dados.value(forKey: "id") as! Int
+            ultimoID = idRoupa
         }
-        print("Chamou tudo")
-        return matrizRoupas
+        
+    } catch {
+        print("Erro ao carregar")
+    }
+    return ultimoID
     }
 }

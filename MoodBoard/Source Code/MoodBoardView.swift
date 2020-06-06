@@ -11,13 +11,13 @@ import CoreData
 import UIKit
 
 
-class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource/*, UIImagePickerControllerDelegate & UINavigationControllerDelegate*/ {
+class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource/*, UIImagePickerControllerDelegate & UINavigationControllerDelegate*/ {
     
     
     // Variáveis de objetos
     @IBOutlet weak var pickerCategoriaRoupa: UIPickerView!
     
-    @IBOutlet weak var collectionViewMoodBoard: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     // Variáveis lógicas
     
     let ImagensExemplo = [UIImage(named: "image1"),
@@ -28,14 +28,30 @@ class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     let categoriasRoupa = ["Social","Inverno","Casual","Verão","Festa"]
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("Foi")
+        return ImagensExemplo.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IdentificadorMood", for: indexPath) as! MoodBoardViewCell
+        cell.imagem.image = ImagensExemplo[indexPath.item]
+        return cell
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let layout = collectionViewMoodBoard?.collectionViewLayout as? MoodBoard{
+        collectionView.reloadData()
+        
+        /*
+        if let layout = collectionView?.collectionViewLayout as? MoodBoard{
             layout.delegate = self
             print("Foi?")
         }
+ 
+        */
         
         
         let anguloDeRotação = CGFloat(90 * (Double.pi/180))
@@ -93,21 +109,11 @@ class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
 }
 
-extension MoodBoardViewController: MoodBoardDelegate, UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ImagensExemplo.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIdentifier", for: indexPath) as! MoodBoardViewCell
-        cell.imagem.image = ImagensExemplo[indexPath.item]
-        return cell
-    }
+
+extension MoodBoardViewController: MoodBoardDelegate{
 
     func collectionView(_ collectionView: UICollectionView, tamanhoImagem indexPath: IndexPath) -> CGFloat {
-        print("OI?")
         return (ImagensExemplo[indexPath.item]?.size.height)!
     }
 }
-
 

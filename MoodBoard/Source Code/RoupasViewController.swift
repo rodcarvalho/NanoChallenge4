@@ -153,7 +153,8 @@ class RoupasViewController: UIViewController {
         }
         
         for i in deleteNeededIndexPaths.sorted(by: {$0.item > $1.item}){
-            //procBD.apagarApenasUmRegistro(DataSource[i[1]].idRoupa)
+            print(DataSource[i[1]].idRoupa)
+            procBD.apagarApenasUmRegistro(idRoupa: DataSource[i[1]].idRoupa)
             DataSource.remove(at: i.item)
         }
         
@@ -199,17 +200,10 @@ extension RoupasViewController: UISearchResultsUpdating {
         let predicate: NSPredicate
         if let userInput = searchController.searchBar.text, !userInput.isEmpty {
 
-            // Searching title with "diacritic insensitive" option gets the same result:
-            //     predicate = NSPredicate(format: "title CONTAINS[cd] %@", userInput)
-            // However, searching canonicalTitle avoids doing diacritic insensitive comparison every time,
-            // and hence has better performance.
-            //
-            predicate = NSPredicate(format: "nome CONTAINS[c] %@", userInput)
+            DataSource = procBD.CarregarRoupas(input: userInput)
         } else {
-            predicate = NSPredicate(value: true)
+            DataSource = procBD.CarregarRoupas(input: "")
         }
-
-        //O fetch vem aqui
         
         collectionView.reloadData()
     }

@@ -78,6 +78,7 @@ class GuardaRoupaAddViewController: UIViewController, UIPickerViewDelegate, UIPi
         
         if txtNomeRoupa.text != "" && novaImagem == true {
             procBD.SalvarRoupa(
+                idRoupa: (procBD.pegarIDRoupa()+1),
                 nomeRoupa: txtNomeRoupa.text ?? "NULL",
                 tipoRoupa: tiposDeRoupa[pickerTipoRoupa.selectedRow(inComponent: 0)],
                 imagemRoupa: (imagemRoupa.image?.pngData())!

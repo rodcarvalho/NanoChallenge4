@@ -31,7 +31,7 @@
                                 <rect key="frame" x="87" y="264" width="240" height="242"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.078258775680000003" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewLayout key="collectionViewLayout" id="zpG-pg-8Ix" customClass="MoodBoard" customModule="MoodBoard" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="wDv-IF-H7v" customClass="MoodBoard" customModule="MoodBoard" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ul0-d3-liV">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -49,7 +49,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6F2-Xk-ike"/>
                     <connections>
-                        <outlet property="collectionViewMoodBoard" destination="PQ5-Ez-FEw" id="WEO-kf-zP8"/>
+                        <outlet property="collectionView" destination="PQ5-Ez-FEw" id="bO3-rW-dsi"/>
                         <outlet property="pickerCategoriaRoupa" destination="14g-nj-LJJ" id="0y2-Pn-Bp9"/>
                     </connections>
                 </viewController>
