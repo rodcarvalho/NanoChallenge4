@@ -196,21 +196,14 @@ extension RoupasViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension RoupasViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        let predicate: NSPredicate
-        if let userInput = searchController.searchBar.text, !userInput.isEmpty {
+            //let predicate: NSPredicate
+            if let userInput = searchController.searchBar.text, !userInput.isEmpty {
 
-            // Searching title with "diacritic insensitive" option gets the same result:
-            //     predicate = NSPredicate(format: "title CONTAINS[cd] %@", userInput)
-            // However, searching canonicalTitle avoids doing diacritic insensitive comparison every time,
-            // and hence has better performance.
-            //
-            predicate = NSPredicate(format: "nome CONTAINS[c] %@", userInput)
-        } else {
-            predicate = NSPredicate(value: true)
+                DataSource = procBD.CarregarRoupas(input: userInput)
+            } else {
+                DataSource = procBD.CarregarRoupas(input: "")
+            }
+            
+            collectionView.reloadData()
         }
-
-        //O fetch vem aqui
-        
-        collectionView.reloadData()
     }
-}
