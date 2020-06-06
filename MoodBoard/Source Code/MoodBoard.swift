@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol MoodBoardDelegate: class {
-    func collectionView(_ collectionView: UICollectionView, tamanhoImagem indexPath: IndexPath) -> CGSize
+protocol MoodBoardDelegate: AnyObject {
+    func collectionView(_ collectionView: UICollectionView, tamanhoImagem indexPath: IndexPath) -> CGFloat
 }
 
 class MoodBoard: UICollectionViewLayout {
     
-    weak var delegate: MoodBoardDelegate!
+    weak var delegate: MoodBoardDelegate?
     
     var numeroDeColunas = 2
-    var espacamentoEntreImagens = 3
+    var espacamentoEntreImagens: CGFloat = 3
     
     fileprivate var cache = [UICollectionViewLayoutAttributes]()
     
@@ -27,15 +27,20 @@ class MoodBoard: UICollectionViewLayout {
         guard let collectionView = collectionView else{
             return 0
         }
-        
-        return collectionView.bounds.width
+        let insets = collectionView.contentInset
+        return collectionView.bounds.width - (insets.left + insets.right)
     }
     
     override var collectionViewContentSize: CGSize {
+        print("Até aqui foi")
         return CGSize(width: larguraDoConteudo, height: alturaDoConteudo)
     }
     
+    
+    
+    
     override func prepare() {
+        print("Aqui tb")
         guard cache.isEmpty, let collectionView = collectionView else {
             return
         }
@@ -49,14 +54,49 @@ class MoodBoard: UICollectionViewLayout {
         var coluna = 0
         var yOffset = [CGFloat](repeating: 0, count: numeroDeColunas)
         
+        print(collectionView.numberOfItems(inSection: 0))
+        
         for item in 0..<collectionView.numberOfItems(inSection: 0) {
             
             let indexPath = IndexPath(item: item, section: 0)
             
-            //PHOTOSIZE
+            let alturaDaImagem = delegate?.collectionView(collectionView, tamanhoImagem: indexPath) ?? 180
             
+            let alturaCelula = espacamentoEntreImagens * 2 + alturaDaImagem
+            
+            let frame = CGRect(x: xOffset[coluna], y: yOffset[coluna], width: larguraDaColuna, height: alturaCelula)
+            let inserirFrame = frame.insetBy(dx: espacamentoEntreImagens, dy: espacamentoEntreImagens)
+            
+            let atributos = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            atributos.frame = inserirFrame
+            cache.append(atributos)
+            print(cache)
+            
+            alturaDoConteudo = max(alturaDoConteudo, frame.maxY)
+            yOffset[coluna] = yOffset[coluna] + alturaCelula
+            
+            coluna = coluna < (numeroDeColunas-1) ? (coluna + 1) : 0
         }
         
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        
+        var atributosDeLayoutVisiveis: [UICollectionViewLayoutAttributes] = []
+        print("Foi aquiiii")
+        
+        for atributos in cache {
+            if atributos.frame.intersects(rect) {
+            atributosDeLayoutVisiveis.append(atributos)
+            }
+        }
+        
+        return atributosDeLayoutVisiveis
+    }
+    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        print("Tamo quase")
+        return cache[indexPath.item]
     }
     
 }

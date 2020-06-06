@@ -23,6 +23,8 @@
 		F2804058247FF06C002DAF48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2804057247FF06C002DAF48 /* Assets.xcassets */; };
 		F280405B247FF06C002DAF48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2804059247FF06C002DAF48 /* LaunchScreen.storyboard */; };
 		F2BFCD8D2481817700A2FA30 /* ProcedimentosBD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BFCD8C2481817700A2FA30 /* ProcedimentosBD.swift */; };
+		F2DCEA34248C1DEA00BB510B /* MoodBoardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DCEA33248C1DEA00BB510B /* MoodBoardViewCell.swift */; };
+		F2DCEA36248C212000BB510B /* MoodBoardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2DCEA35248C212000BB510B /* MoodBoardViewCell.xib */; };
 		F2E8E17624897C9A005A4172 /* MoodBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E8E17524897C9A005A4172 /* MoodBoard.storyboard */; };
 		F2E8E17824897D4F005A4172 /* MoodBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E8E17724897D4F005A4172 /* MoodBoardView.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +48,8 @@
 		F280405A247FF06C002DAF48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F280405C247FF06C002DAF48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2BFCD8C2481817700A2FA30 /* ProcedimentosBD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcedimentosBD.swift; sourceTree = "<group>"; };
+		F2DCEA33248C1DEA00BB510B /* MoodBoardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardViewCell.swift; sourceTree = "<group>"; };
+		F2DCEA35248C212000BB510B /* MoodBoardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoodBoardViewCell.xib; sourceTree = "<group>"; };
 		F2E8E17524897C9A005A4172 /* MoodBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoodBoard.storyboard; sourceTree = "<group>"; };
 		F2E8E17724897D4F005A4172 /* MoodBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,9 +74,10 @@
 				38215104248973DC001C5687 /* RoupasCollectionViewCell.swift */,
 				38215105248973DC001C5687 /* RoupasCollectionViewCell.xib */,
 				3821510824898094001C5687 /* ImgRoupaViewController.swift */,
-				38DFF5712486CC48003DDF45 /* Roupas.swift */,
 				F2E8E17724897D4F005A4172 /* MoodBoardView.swift */,
 				F227CFAB248AC627005C429D /* MoodBoard.swift */,
+				F2DCEA33248C1DEA00BB510B /* MoodBoardViewCell.swift */,
+				F2DCEA35248C212000BB510B /* MoodBoardViewCell.xib */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				F2E8E17624897C9A005A4172 /* MoodBoard.storyboard in Resources */,
 				F2804058247FF06C002DAF48 /* Assets.xcassets in Resources */,
 				38215107248973DC001C5687 /* RoupasCollectionViewCell.xib in Resources */,
+				F2DCEA36248C212000BB510B /* MoodBoardViewCell.xib in Resources */,
 				38F8718A2481AE8700DD291D /* Roupas.storyboard in Resources */,
 				F2804053247FF069002DAF48 /* Main.storyboard in Resources */,
 			);
@@ -199,8 +205,8 @@
 				38215106248973DC001C5687 /* RoupasCollectionViewCell.swift in Sources */,
 				382151032489733E001C5687 /* RoupasViewController.swift in Sources */,
 				3821510924898094001C5687 /* ImgRoupaViewController.swift in Sources */,
-				38DFF5722486CC48003DDF45 /* Roupas.swift in Sources */,
 				F227CFAC248AC627005C429D /* MoodBoard.swift in Sources */,
+				F2DCEA34248C1DEA00BB510B /* MoodBoardViewCell.swift in Sources */,
 				F2E8E17824897D4F005A4172 /* MoodBoardView.swift in Sources */,
 				F25B8ABD2480458300E572D1 /* GuardaRoupa.swift in Sources */,
 				F2BFCD8D2481817700A2FA30 /* ProcedimentosBD.swift in Sources */,
