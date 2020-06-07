@@ -6,6 +6,8 @@
 //  Copyright © 2020 Jader e Rodrigo. All rights reserved.
 //
 
+/*
+
 import UIKit
 
 protocol MoodBoardDelegate: AnyObject {
@@ -39,6 +41,7 @@ class MoodBoard: UICollectionViewLayout {
     
     
     
+    @IBOutlet weak var calca: UIImageView!
     override func prepare() {
         print("Aqui tb")
         guard cache.isEmpty, let collectionView = collectionView else {
@@ -63,6 +66,9 @@ class MoodBoard: UICollectionViewLayout {
             let alturaDaImagem = delegate?.collectionView(collectionView, tamanhoImagem: indexPath) ?? 1
             
             let alturaCelula = espacamentoEntreImagens * 2 + 180//alturaDaImagem
+            @IBOutlet weak var acessorio: UIImageView!
+            @IBOutlet weak var cabeca: UIImageView!
+            @IBOutlet weak var cabeca: UIImageView!
             
             let frame = CGRect(x: xOffset[coluna], y: yOffset[coluna], width: larguraDaColuna, height: alturaCelula)
             let inserirFrame = frame.insetBy(dx: espacamentoEntreImagens, dy: espacamentoEntreImagens)
@@ -100,3 +106,4 @@ class MoodBoard: UICollectionViewLayout {
     }
     
 }
+*/

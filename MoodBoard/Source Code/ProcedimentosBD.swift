@@ -65,22 +65,21 @@ class ProcedimentosBD{
                 let nomeRoupa = dados.value(forKey: "nome") as! String
                 let tipoRoupa = dados.value(forKey: "tipo") as! String
                 let imagemRoupaBD = dados.value(forKey: "imagem") as! Data
-                print(dados.value(forKey: "categoria") as? [String] ?? "")
-                
+                let categoriaRoupaBD = dados.value(forKey: "categoria") as? [String] ?? [""]
                 
                 matrizRoupas.append(Roupa(idRoupa: idRoupa,
                                           nomeRoupa: nomeRoupa,
                                           tipoRoupa: tipoRoupa,
-                                          imagemRoupa: UIImage(data: imagemRoupaBD)!
-                                         )
-                                    )
+                                          imagemRoupa: UIImage(data: imagemRoupaBD)!,
+                                          categoriaRoupa: categoriaRoupaBD
+                    )
+                )
                 
             }
             
         } catch {
             print("Erro ao carregar")
         }
-        print(matrizRoupas)
         return matrizRoupas
     }
     
@@ -120,47 +119,70 @@ class ProcedimentosBD{
     // Pega o último ID do guarda-roupa
     
     func pegarIDRoupa() -> Int {
-    
-    let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
-        
-    var ultimoID = 0
-
-    do{
-        let consulta = try banco.fetch(requisição)
-        
-        for dados in consulta as! [NSManagedObject]{
-            
-            let idRoupa = dados.value(forKey: "id") as! Int
-            ultimoID = idRoupa
-        }
-        
-    } catch {
-        print("Erro ao carregar")
-    }
-    return ultimoID
-    }
-    
-    
-    func selecionarLook(categoria: String) -> [item] {
-        var vetorLook = [item]()
         
         let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
         
-        requisição.predicate = NSPredicate(format: "tipo CONTAINS[c] %@", categoria)
+        var ultimoID = 0
         
         do{
             let consulta = try banco.fetch(requisição)
             
             for dados in consulta as! [NSManagedObject]{
                 
-                let imagemRoupaBD = dados.value(forKey: "imagem") as! Data
-                
-                vetorLook.append(item( imagem: UIImage(data: imagemRoupaBD)!))
+                let idRoupa = dados.value(forKey: "id") as! Int
+                ultimoID = idRoupa
             }
             
         } catch {
             print("Erro ao carregar")
         }
+        return ultimoID
+    }
+    
+    
+    func selecionarLook(categoria: String) -> [UIImage] {
+        var vetorLook = [UIImage(),UIImage(),UIImage(),UIImage(),UIImage()]
+        
+        let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
+        
+        //requisição.predicate = NSPredicate(format: "categoria CONTAINS[c] %@", categoria)
+        
+        do{
+            let consulta = try banco.fetch(requisição)
+            
+            var contadorPecas = [0,0,0,0,0]
+                
+            for dados in consulta as! [NSManagedObject]{
+                let vetorCategorias = dados.value(forKey: "categoria") as? [String] ?? [""]
+                let tipoRoupa = dados.value(forKey: "tipo") as! String
+                if vetorCategorias.contains(categoria){
+                    
+                    if tipoRoupa == "Chapéu" && 0 == Int.random(in: 0...contadorPecas[0]){
+                        contadorPecas[0] += 1
+                        vetorLook[0] = UIImage(data: dados.value(forKey: "imagem") as! Data)!
+                    }
+                    if tipoRoupa == "Acessório" && 0 == Int.random(in: 0...contadorPecas[1]){
+                        contadorPecas[1] += 1
+                        vetorLook[1] = UIImage(data: dados.value(forKey: "imagem") as! Data)!
+                    }
+                    if tipoRoupa == "Torso" && 0 == Int.random(in: 0...contadorPecas[2]){
+                        contadorPecas[2] += 1
+                        vetorLook[2] = UIImage(data: dados.value(forKey: "imagem") as! Data)!
+                    }
+                    if tipoRoupa == "Calçado" && 0 == Int.random(in: 0...contadorPecas[3]){
+                        contadorPecas[3] += 1
+                        vetorLook[3] = UIImage(data: dados.value(forKey: "imagem") as! Data)!
+                    }
+                    if tipoRoupa == "Calça" && 0 == Int.random(in: 0...contadorPecas[4]){
+                        contadorPecas[4] += 1
+                        vetorLook[4] = UIImage(data: dados.value(forKey: "imagem") as! Data)!
+                    }
+                }
+            }
+        } catch {
+            print("Erro ao carregar")
+        }
+        print(vetorLook)
         return vetorLook
     }
 }

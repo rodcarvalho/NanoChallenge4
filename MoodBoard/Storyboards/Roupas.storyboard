@@ -88,7 +88,7 @@
                                 <rect key="frame" x="20" y="235" width="374" height="422"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytM-08-ztI">
-                                <rect key="frame" x="90" y="747" width="235" height="24"/>
+                                <rect key="frame" x="20" y="747" width="374" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -124,11 +124,11 @@
                             <constraint firstItem="Aza-eT-rdX" firstAttribute="trailing" secondItem="APc-JH-PWp" secondAttribute="trailing" constant="20" id="Ors-Sz-nf8"/>
                             <constraint firstItem="bjN-X2-apW" firstAttribute="leading" secondItem="Aza-eT-rdX" secondAttribute="leading" constant="90" id="PqH-QX-tDZ"/>
                             <constraint firstItem="n64-lV-Xsr" firstAttribute="leading" secondItem="Aza-eT-rdX" secondAttribute="leading" constant="20" id="bjf-Zu-9k8"/>
-                            <constraint firstItem="ytM-08-ztI" firstAttribute="leading" secondItem="Aza-eT-rdX" secondAttribute="leading" constant="90" id="fZ8-bj-5qu"/>
+                            <constraint firstItem="ytM-08-ztI" firstAttribute="leading" secondItem="Aza-eT-rdX" secondAttribute="leading" constant="20" id="fZ8-bj-5qu"/>
                             <constraint firstItem="n64-lV-Xsr" firstAttribute="top" secondItem="Aza-eT-rdX" secondAttribute="top" constant="47" id="iKR-PG-auU"/>
                             <constraint firstItem="Aza-eT-rdX" firstAttribute="trailing" secondItem="n64-lV-Xsr" secondAttribute="trailing" constant="20" id="nNk-WS-tbj"/>
                             <constraint firstItem="Aza-eT-rdX" firstAttribute="trailing" secondItem="bjN-X2-apW" secondAttribute="trailing" constant="89" id="qIa-l7-F5X"/>
-                            <constraint firstItem="Aza-eT-rdX" firstAttribute="trailing" secondItem="ytM-08-ztI" secondAttribute="trailing" constant="89" id="qL0-uU-HkN"/>
+                            <constraint firstItem="Aza-eT-rdX" firstAttribute="trailing" secondItem="ytM-08-ztI" secondAttribute="trailing" constant="20" id="qL0-uU-HkN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Aza-eT-rdX"/>
                     </view>

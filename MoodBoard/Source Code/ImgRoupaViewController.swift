@@ -29,7 +29,11 @@ class ImgRoupaViewController: UIViewController {
         imageView.image = roupa.imagemRoupa
         nomeRoupa.text = roupa.nomeRoupa
         tipoRoupa.text = roupa.tipoRoupa
-        categoriaRoupa.text = "Irineu"
+        categoriaRoupa.text = roupa.categoriaRoupa[0]
+        
+        for indexroupa in 1..<roupa.categoriaRoupa.count{
+            categoriaRoupa.text! += " - \(roupa.categoriaRoupa[indexroupa])"
+        }
     }
     
 }

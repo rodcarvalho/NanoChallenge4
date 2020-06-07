@@ -14,6 +14,7 @@ struct Roupa {
     var nomeRoupa : String
     var tipoRoupa : String
     var imagemRoupa: UIImage
+    var categoriaRoupa: [String]
 }
 
 class RoupasViewController: UIViewController {

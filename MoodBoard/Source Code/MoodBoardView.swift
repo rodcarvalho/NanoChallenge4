@@ -15,7 +15,7 @@ struct item {
 }
 
 
-class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource/*, UIImagePickerControllerDelegate & UINavigationControllerDelegate*/ {
+class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{ //MoodBoardDelegate/*, UIImagePickerControllerDelegate & UINavigationControllerDelegate*/ {
     
     
     // Variáveis de objetos
@@ -32,25 +32,30 @@ class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     let identificadorDeCelulas = "IdentificadorMood"
     
-    var DataSource: [item] = [item(imagem: UIImage(named: "image1")!),
-                                  item(imagem: UIImage(named: "image2")!),
-                                  item(imagem: UIImage(named: "image3")!),
-                                  item(imagem: UIImage(named: "image4")!),
-                                  item(imagem: UIImage(named: "image5")!)]
+    var DataSource: [UIImage] = []
     
-    let categoriasRoupa = ["Social","Inverno","Casual","Verão","Festa"]
+    let categoriasRoupa = ["Social","Esportiva","Casual","Festa"]
+    
+    @IBOutlet weak var cabeca: UIImageView!
+    @IBOutlet weak var torso: UIImageView!
+    @IBOutlet weak var calca: UIImageView!
+    @IBOutlet weak var acessorio: UIImageView!
+    @IBOutlet weak var calcado: UIImageView!
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupCollectionView()
+        //setupCollectionView()
         
-        
+        /*
         if let layout = collectionView?.collectionViewLayout as? MoodBoard{
             layout.delegate = self
             print("Foi?")
         }
+         */
  
         
         
@@ -113,16 +118,24 @@ class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func SelecionarLook(_ sender: Any) {
         
-        DataSource = procBD.selecionarLook(categoria: "Torso")//categoriasRoupa[pickerCategoriaRoupa.selectedRow(inComponent: 0)])
+        DataSource = procBD.selecionarLook(categoria: categoriasRoupa[pickerCategoriaRoupa.selectedRow(inComponent: 0)])
         
-        collectionView.reloadData()
+        cabeca.image = DataSource[0]
+        acessorio.image = DataSource[1]
+        torso.image = DataSource[2]
+        calcado.image = DataSource[3]
+        calca.image = DataSource[4]
+        
+        
+        
+        //collectionView.reloadData()
         
     }
     
     
     
     
-    
+ /*
     
     //MOODBOARD
     
@@ -134,6 +147,7 @@ class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         collectionView.register(nib, forCellWithReuseIdentifier: identificadorDeCelulas)
     }
 }
+
 
 extension MoodBoardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -161,4 +175,5 @@ extension MoodBoardViewController: MoodBoardDelegate{
     }
 }
 
-
+*/
+}
