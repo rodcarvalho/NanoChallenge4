@@ -15,16 +15,23 @@ class GuardaRoupaAddViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     // Variáveis de objetos
     @IBOutlet weak var txtNomeRoupa: UITextField!
+    @IBOutlet weak var k: UIImageView!
     
     @IBOutlet weak var pickerTipoRoupa: UIPickerView!
     
     @IBOutlet weak var imagemRoupa: UIImageView!
     
+    @IBOutlet weak var switchCasual: UISwitch!
+    @IBOutlet weak var switchFesta: UISwitch!
+    @IBOutlet weak var switchEsportiva: UISwitch!
+    @IBOutlet weak var switchSocial: UISwitch!
     
     // Variáveis lógicas
     var novaImagem = false
     
     let tiposDeRoupa = ["Chapéu","Acessório","Torso","Calçado","Calça"]
+    
+    var categoriaRoupas: [String] = []
     
     // Instanciando banco
     var procBD = ProcedimentosBD()
@@ -76,12 +83,28 @@ class GuardaRoupaAddViewController: UIViewController, UIPickerViewDelegate, UIPi
     // Função que salva os dados da roupa no BD
     @IBAction func SalvarDados(_ sender: Any) {
         
+        
+        if switchCasual.isOn{
+            categoriaRoupas.append("Casual")
+        }
+        if switchFesta.isOn{
+            categoriaRoupas.append("Festa")
+        }
+        if switchEsportiva.isOn{
+            categoriaRoupas.append("Esportiva")
+        }
+        if switchSocial.isOn{
+            categoriaRoupas.append("Social")
+        }
+        
+        
         if txtNomeRoupa.text != "" && novaImagem == true {
             procBD.SalvarRoupa(
                 idRoupa: (procBD.pegarIDRoupa()+1),
                 nomeRoupa: txtNomeRoupa.text ?? "NULL",
                 tipoRoupa: tiposDeRoupa[pickerTipoRoupa.selectedRow(inComponent: 0)],
-                imagemRoupa: (imagemRoupa.image?.pngData())!
+                imagemRoupa: (imagemRoupa.image?.pngData())!,
+                categoriaRoupa: categoriaRoupas
             )
             
             //Lembrar de adicionar uma notificação pra mostrar que foi salvo com sucesso
@@ -91,6 +114,14 @@ class GuardaRoupaAddViewController: UIViewController, UIPickerViewDelegate, UIPi
             pickerTipoRoupa.selectRow(tiposDeRoupa.count/2, inComponent: 0, animated: true)
             imagemRoupa.image = UIImage.init(systemName: "square.and.arrow.up")
             novaImagem = false
+            
+            switchCasual.isOn = false
+            switchSocial.isOn = false
+            switchEsportiva.isOn = false
+            switchFesta.isOn = false
+            
+            categoriaRoupas = []
+            
             
         }
     }

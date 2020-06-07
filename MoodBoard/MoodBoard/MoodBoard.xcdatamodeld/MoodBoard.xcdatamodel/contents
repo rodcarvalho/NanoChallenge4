@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F96" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Roupas" representedClassName="Roupas" syncable="YES" codeGenerationType="class">
+        <attribute name="categoria" attributeType="Transformable"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="imagem" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" defaultValueString="NomeVazio"/>
         <attribute name="tipo" optional="YES" attributeType="String" defaultValueString="TipoVazio"/>
     </entity>
     <elements>
-        <element name="Roupas" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Roupas" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>
