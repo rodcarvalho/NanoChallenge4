@@ -39,7 +39,7 @@
 		F25B8ABA2480291F00E572D1 /* GuardaRoupa.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GuardaRoupa.storyboard; sourceTree = "<group>"; };
 		F25B8ABC2480458300E572D1 /* GuardaRoupa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardaRoupa.swift; sourceTree = "<group>"; };
 		F25B8ABE248055FA00E572D1 /* ImagemTeste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImagemTeste.png; sourceTree = "<group>"; };
-		F2804048247FF069002DAF48 /* MoodBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2804048247FF069002DAF48 /* LookBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LookBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F280404B247FF069002DAF48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F280404D247FF069002DAF48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F2804052247FF069002DAF48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		F2804049247FF069002DAF48 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F2804048247FF069002DAF48 /* MoodBoard.app */,
+				F2804048247FF069002DAF48 /* LookBoard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,7 +142,7 @@
 			);
 			name = MoodBoard;
 			productName = MoodBoard;
-			productReference = F2804048247FF069002DAF48 /* MoodBoard.app */;
+			productReference = F2804048247FF069002DAF48 /* LookBoard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -363,7 +363,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Jader-e-Rodrigo.MoodBoard";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LookBoard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -380,7 +380,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Jader-e-Rodrigo.MoodBoard";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LookBoard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

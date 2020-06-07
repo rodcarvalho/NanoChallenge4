@@ -56,6 +56,18 @@ class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             print("Foi?")
         }
          */
+        
+        cabeca.layer.borderColor = cabeca.backgroundColor?.cgColor
+        acessorio.layer.borderColor = acessorio.backgroundColor?.cgColor
+        torso.layer.borderColor = torso.backgroundColor?.cgColor
+        calcado.layer.borderColor = calcado.backgroundColor?.cgColor
+        calca.layer.borderColor = calca.backgroundColor?.cgColor
+        
+        cabeca.layer.borderWidth = 1.5
+        acessorio.layer.borderWidth = 1.5
+        torso.layer.borderWidth = 1.5
+        calcado.layer.borderWidth = 1.5
+        calca.layer.borderWidth  = 1.5
  
         
         
@@ -119,6 +131,13 @@ class MoodBoardViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func SelecionarLook(_ sender: Any) {
         
         DataSource = procBD.selecionarLook(categoria: categoriasRoupa[pickerCategoriaRoupa.selectedRow(inComponent: 0)])
+        
+        cabeca.backgroundColor = .white
+        acessorio.backgroundColor = .white
+        torso.backgroundColor = .white
+        calcado.backgroundColor = .white
+        calca.backgroundColor = .white
+        
         
         cabeca.image = DataSource[0]
         acessorio.image = DataSource[1]
