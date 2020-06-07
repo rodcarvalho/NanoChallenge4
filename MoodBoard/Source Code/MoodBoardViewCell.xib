@@ -9,24 +9,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IdentificadorMood" id="XiG-ox-FoS" customClass="MoodBoardViewCell" customModule="MoodBoard" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+        <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="IdentificadorMood" id="XiG-ox-FoS" customClass="MoodBoardViewCell" customModule="MoodBoard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="189" height="182"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Olb-0J-CbS">
-                <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                <rect key="frame" x="0.0" y="0.0" width="189" height="182"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4v-KD-VZh">
-                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pencil.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="c4v-KD-VZh">
+                        <rect key="frame" x="4" y="1" width="180" height="181"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </collectionViewCellContentView>
-            <size key="customSize" width="110" height="110"/>
+            <size key="customSize" width="189" height="182"/>
             <connections>
                 <outlet property="imagem" destination="c4v-KD-VZh" id="rxw-7F-4x7"/>
             </connections>
-            <point key="canvasLocation" x="33.333333333333336" y="176.78571428571428"/>
+            <point key="canvasLocation" x="177.536231884058" y="12.723214285714285"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

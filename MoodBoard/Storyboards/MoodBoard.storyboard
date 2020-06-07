@@ -22,24 +22,28 @@
                                 <state key="normal" title="Gerar Moodboard">
                                     <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="SelecionarLook:" destination="pjh-oa-PdT" eventType="touchUpInside" id="8KL-HD-T2h"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14g-nj-LJJ">
                                 <rect key="frame" x="0.0" y="88" width="414" height="160"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PQ5-Ez-FEw">
-                                <rect key="frame" x="87" y="264" width="240" height="242"/>
+                                <rect key="frame" x="20" y="264" width="374" height="374"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.078258775680000003" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewLayout key="collectionViewLayout" id="wDv-IF-H7v" customClass="MoodBoard" customModule="MoodBoard" customModuleProvider="target"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewLayout key="collectionViewLayout" id="2Z0-H2-H70" customClass="MoodBoard" customModule="MoodBoard" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ul0-d3-liV">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="Ul0-d3-liV">
+                                        <rect key="frame" x="53" y="0.0" width="268" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hB9-yM-ZaA">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="268" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="268" height="89"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -49,6 +53,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6F2-Xk-ike"/>
                     <connections>
+                        <outlet property="botaoGerarMoodBoard" destination="Hhf-tG-R66" id="LmT-sE-FCq"/>
                         <outlet property="collectionView" destination="PQ5-Ez-FEw" id="bO3-rW-dsi"/>
                         <outlet property="pickerCategoriaRoupa" destination="14g-nj-LJJ" id="0y2-Pn-Bp9"/>
                     </connections>

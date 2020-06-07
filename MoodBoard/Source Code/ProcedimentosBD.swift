@@ -136,4 +136,28 @@ class ProcedimentosBD{
     }
     return ultimoID
     }
+    
+    
+    func selecionarLook(categoria: String) -> [item] {
+        var vetorLook = [item]()
+        
+        let requisição = NSFetchRequest<NSFetchRequestResult>(entityName: "Roupas")
+        
+        requisição.predicate = NSPredicate(format: "tipo CONTAINS[c] %@", categoria)
+        
+        do{
+            let consulta = try banco.fetch(requisição)
+            
+            for dados in consulta as! [NSManagedObject]{
+                
+                let imagemRoupaBD = dados.value(forKey: "imagem") as! Data
+                
+                vetorLook.append(item( imagem: UIImage(data: imagemRoupaBD)!))
+            }
+            
+        } catch {
+            print("Erro ao carregar")
+        }
+        return vetorLook
+    }
 }

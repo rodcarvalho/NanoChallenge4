@@ -60,9 +60,9 @@ class MoodBoard: UICollectionViewLayout {
             
             let indexPath = IndexPath(item: item, section: 0)
             
-            let alturaDaImagem = delegate?.collectionView(collectionView, tamanhoImagem: indexPath) ?? 180
+            let alturaDaImagem = delegate?.collectionView(collectionView, tamanhoImagem: indexPath) ?? 1
             
-            let alturaCelula = espacamentoEntreImagens * 2 + alturaDaImagem
+            let alturaCelula = espacamentoEntreImagens * 2 + 180//alturaDaImagem
             
             let frame = CGRect(x: xOffset[coluna], y: yOffset[coluna], width: larguraDaColuna, height: alturaCelula)
             let inserirFrame = frame.insetBy(dx: espacamentoEntreImagens, dy: espacamentoEntreImagens)
