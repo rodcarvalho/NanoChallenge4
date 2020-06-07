@@ -9,22 +9,27 @@
 import UIKit
 
 class ImgRoupaViewController: UIViewController {
-
+    
+    @IBOutlet weak var nomeRoupa: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var tipoRoupa: UILabel!
+    @IBOutlet weak var categoriaRoupa: UILabel!
+    
     var dadosRoupa: Roupa!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupImage()
+        
+        setupRoupa()
     }
     
-    private func setupImage(){
-        guard let name = dadosRoupa else {return}
+    private func setupRoupa(){
+        guard let roupa = dadosRoupa else {return}
         
-        //if let image = name.imagemRoupa{
-            imageView.image = name.imagemRoupa //image
-        //}
+        imageView.image = roupa.imagemRoupa
+        nomeRoupa.text = roupa.nomeRoupa
+        tipoRoupa.text = roupa.tipoRoupa
+        categoriaRoupa.text = "Irineu"
     }
     
 }
