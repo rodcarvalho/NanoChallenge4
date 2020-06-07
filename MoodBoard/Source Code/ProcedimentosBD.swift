@@ -24,7 +24,7 @@ class ProcedimentosBD{
     }
     
     
-    func SalvarRoupa(idRoupa: Int,nomeRoupa : String, tipoRoupa : String, imagemRoupa : Data){
+    func SalvarRoupa(idRoupa: Int,nomeRoupa : String, tipoRoupa : String, imagemRoupa : Data, categoriaRoupa : [String]){
         // Definindo novo objeto a ser inserido
         
         let novaRoupa = NSManagedObject(entity: tabelaRoupas!, insertInto: banco)
@@ -34,6 +34,7 @@ class ProcedimentosBD{
         novaRoupa.setValue(nomeRoupa, forKey: "nome")
         novaRoupa.setValue(tipoRoupa, forKey: "tipo")
         novaRoupa.setValue(imagemRoupa, forKey: "imagem")
+        novaRoupa.setValue(categoriaRoupa, forKey: "categoria")
         
         
         do{
@@ -64,6 +65,7 @@ class ProcedimentosBD{
                 let nomeRoupa = dados.value(forKey: "nome") as! String
                 let tipoRoupa = dados.value(forKey: "tipo") as! String
                 let imagemRoupaBD = dados.value(forKey: "imagem") as! Data
+                print(dados.value(forKey: "categoria") as? [String] ?? "")
                 
                 
                 matrizRoupas.append(Roupa(idRoupa: idRoupa,
@@ -78,6 +80,7 @@ class ProcedimentosBD{
         } catch {
             print("Erro ao carregar")
         }
+        print(matrizRoupas)
         return matrizRoupas
     }
     
