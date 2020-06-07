@@ -25,30 +25,30 @@
             </objects>
             <point key="canvasLocation" x="152" y="302"/>
         </scene>
-        <!--Roupas-->
+        <!--MoodBoard-->
         <scene sceneID="taL-Hl-6PJ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Roupas" id="czc-oI-WV6" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MoodBoard" id="czc-oI-WV6" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="LyY-c5-47c"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lE4-iH-JIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="941" y="86"/>
         </scene>
-        <!--GuardaRoupa-->
+        <!--Roupas-->
         <scene sceneID="zgZ-FB-7Ou">
             <objects>
-                <viewControllerPlaceholder storyboardName="GuardaRoupa" id="fhe-Ic-AlI" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Roupas" id="fhe-Ic-AlI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="JFA-0k-MOT"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlt-y0-UFK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="941" y="340"/>
         </scene>
-        <!--MoodBoard-->
+        <!--GuardaRoupa-->
         <scene sceneID="L96-nD-hx9">
             <objects>
-                <viewControllerPlaceholder storyboardName="MoodBoard" id="Spg-bd-zKh" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="GuardaRoupa" id="Spg-bd-zKh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="7gc-pX-VYK"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdr-Xg-Sba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
